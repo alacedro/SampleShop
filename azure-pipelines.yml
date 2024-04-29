@@ -61,6 +61,13 @@ stages:
   jobs:
     - job: test
       steps:
+      
+      - task: UseDotNet@2
+        displayName: 'Use .NET Core 3.1 sdk'
+        inputs:
+          packageType: sdk
+          version: '3.1.x'
+      
       - task: DotNetCoreCLI@2
         inputs:
           command: 'test'
